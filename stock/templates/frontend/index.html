@@ -1,0 +1,44 @@
+{% extends 'frontend/layout.html' %}
+
+{% block title %} HOME {%  endblock %}
+
+{% block content %}
+
+<div class="container mt-5"> 
+   <div class="row"> 
+    {% for product in products %}
+
+
+        <div class="col-md-4 ">    <!-- 3 column -->
+            <div class="card">
+                <a  href="{% url 'product_detail' product.id %}">
+                    <center>
+                        <img  class="img-responsive mt-2" width="350" src="{{ product.product_image }}" class="img-fluid">
+                    </center>
+                </a>
+                <div class="card-body">
+                    <a  href="{% url 'product_detail' product.id %}"></a><h4 class="card-title">{{ product.product_name }} </h4></a>
+                    
+                    <div class="row"> 
+                        <div class="col-md-6"> <h6>{{ product.product_price }} THB</h6></div>
+                        <div class="col-md-6 text-end"> <h6>{{ product.product_barcode }}</h6></div>
+                    </div>
+
+                    <p class="card-text">{{ product.product_detail  | truncatewords:15 | linebreaks }}</p>
+                    <div class="row">
+                        <div class="col-md-6 " ><a class="btn btn-success " href="{% url 'product_detail' product.id %}">view more</a></div>
+                        
+                        <div class="col-md-6 text-end"><a class="btn btn-danger " href="{% url 'product_delete' product.id %}"><i class="delete"></i>delete</a></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+       
+    {% endfor %}
+
+    </div>
+    
+
+</div>
+{%  endblock %}

@@ -1,0 +1,52 @@
+{% extends 'frontend/layout.html' %}
+
+{% block title %} Create product {%  endblock %}
+
+{% block content %}
+
+
+    <div class="container mt-5">
+        <h1>เพิ่มสินค้าใหม่</h1>
+        <form action="{% url 'product_create' %}" method="post">
+
+            {% csrf_token %} 
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="product_name" name="product_name" placeholder="Product Name">
+                <label for="product_name">Product Name</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="product_detail" name ="product_detail"  placeholder="Product Name" style="height: 200px;">
+                <label for="procduct_detail">Product Detail</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="product_barcode" name="product_barcode"  placeholder="Product Name">
+                <label for="product_barcode">Product Barcode</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="product_price" name="product_price" placeholder="Product Price">
+                <label for="product_price">Product Price</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="product_qty" name ="product_qty" placeholder="Product Qty">
+                <label for="product_qty">Product Qty</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="product_image" name="product_image" placeholder="Product Image">
+                <label for="product_image">Product Image</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="product_status" name="product_status" placeholder="Product Status">
+                <label for="product_status">Product Status</label>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    {%  endblock %}
+    
